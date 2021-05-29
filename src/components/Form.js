@@ -1,6 +1,9 @@
 
 import React from 'react';
 
+//import Components
+import DropdownMenu from './DropdownMenu';
+
 const Form = ({inputText, setInputText, todos, setTodos}) => {
 // Ici on mettra nos code & functions javascript
     const inputTextHandler = (e) => {
@@ -24,18 +27,7 @@ const Form = ({inputText, setInputText, todos, setTodos}) => {
             <button onClick={submitTextHandler} className="todo-button" type="submit">
                 <i className="fa fa-plus-square"></i>
             </button>
-            <div className="custom-select-wrapper">
-                <div className="custom-select">
-                    <div className="custom-select__trigger"><span>All</span>
-                        <div className="arrow"></div>
-                    </div>
-                    <div name="todos" className="custom-options">
-                        <span className="custom-option selected" data-value="all">All</span>
-                        <span className="custom-option" data-value="completed">Completed</span>
-                        <span className="custom-option" data-value="uncompleted">Uncompleted</span>
-                    </div>
-                </div>
-            </div>
+            <DropdownMenu />
         </form>
     )
 }
