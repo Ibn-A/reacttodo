@@ -1,26 +1,10 @@
 import React, {useState,useRef, useEffect} from 'react'
+import useDetectOutsideClick from './useDetectOutsideClick';
 
 const DropdownMenu = () => {
     const dropdownRef = useRef(null);
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
     const onClick = () => setIsActive(!isActive);
-
-    useEffect(() => {
-        const pageClickEvent = (e) => {
-            // If the active element exist and is clicked outside of
-            if (dropdownRef.current !== null && !dropdownRef.current.contains(e.target)) {
-                setIsActive(!isActive);
-              }
-        };
-        // If the item is active(ie open) then listen for clicks
-        if (isActive) {
-            window.addEventListener('click', pageClickEvent);
-        }
-
-        return () => {
-            window.removeEventListener('click', pageClickEvent);
-        }
-    }, [isActive]);
     
     return (
         <div className="custom-select-wrapper">
