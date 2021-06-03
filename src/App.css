@@ -170,6 +170,7 @@ form button:hover{
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    pointer-events: all;
   }
 .custom-select.open .custom-options {
     opacity: 1;
